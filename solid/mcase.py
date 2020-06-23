@@ -14,8 +14,44 @@ class Mcase(McaseBase):
             # Docking mechanism: use implementation if referenced in .whatsopt_dock.yml file
             self._impl.compute(inputs, outputs)
         else:
-                    
-            outputs['Mcase'] = 1.0   
+
+            Dnozzle = inputs['Dnozzle']
+            Ds = inputs['Ds']
+            f_safety = inputs['f_safety']
+            Lcase = inputs['Lcase']
+            Lfrust = inputs['Lfrust']
+            Mcarter = inputs['Mcarter']
+            Minsulation = inputs['Minsulation']
+            M_CaseBody = inputs['M_CaseBody']
+            M_CaseTop = inputs['M_CaseTop']
+            M_InsulationBody = inputs['M_InsulationBody']
+            M_InsulationTop = inputs['M_InsulationTop']
+            Pc = inputs['Pc']
+            rho = inputs['rho']
+            rho_in = inputs['rho_in']
+            sigma = inputs['sigma']
+            t = inputs['t']
+
+            t = ((Pc * Ds)/(2*sigma)) * f_safety
+
+            M_CaseTop = rho * np.pi * t * (Ds/2)**2
+
+            M_CaseBody = rho * np.pi * Lcase * ((Ds/2)**2 - (Ds/2 - t)**2)
+
+            M_CaseFrust = ((rho * np.pi * Lfrust)/3) * (((Ds/2)**2 + (Ds/2) * (Dnozzle/4) + (Dnozzle/4)**2) - (((Ds/2) - t)**2) + ((Ds/2) - t) * ((Dnozzle/4) - t) + ((Dnozzle/4) - t)**2)
+
+            M_InsulationTop = rho_in * np.pi * 0.003 * ((0.99*Ds) / 2)**2
+
+            M_InsulationBody = rho_in * np.pi * Lcase * (((0.99 * Ds) / 2)**2 - (((0.99 * Ds)/2)**2 - (((0.99 * Ds)/2) - 0.003)**2))
+
+            Mcarter = M_CaseBody + M_CaseTop + M_CaseFrust
+
+            Minsulation = M_InsulationBody + M_InsulationTop
+            
+            Mcase = Mcarter + Minsulation
+        
+            outputs['Mcase'] = Mcase
+        return outputs  
 
 # Reminder: inputs of compute()
 #   

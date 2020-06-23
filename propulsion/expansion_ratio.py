@@ -14,8 +14,16 @@ class ExpansionRatio(ExpansionRatioBase):
             # Docking mechanism: use implementation if referenced in .whatsopt_dock.yml file
             self._impl.compute(inputs, outputs)
         else:
-                    
-            outputs['epsilon'] = np.ones((1,))   
+            gamma = inputs['gamma']
+            gamma_maj = inputs['gamma_maj']
+            Pc = inputs['Pc']
+            Pe = inputs['Pe']
+
+            epsilon = gamma_maj/(np.sqrt(((2*gamma)/(gamma-1))*((Pe/Pc)**(2/gamma))*(1-((Pe/Pc)**((gamma-1)/gamma)))))
+            
+            outputs['epsilon'] = epsilon
+
+        return outputs  
 
 # Reminder: inputs of compute()
 #   

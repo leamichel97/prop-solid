@@ -14,8 +14,11 @@ class PayloadAdapterMass(PayloadAdapterMassBase):
             # Docking mechanism: use implementation if referenced in .whatsopt_dock.yml file
             self._impl.compute(inputs, outputs)
         else:
-                    
-            outputs['M_PLA'] = np.ones((1,))   
+            M_PL = inputs['M_PL']
+            M_PLA = 0.00477536 * (M_PL ** 1.01317) 
+
+            outputs['M_PLA'] = M_PLA
+        return outputs    
 
 # Reminder: inputs of compute()
 #   

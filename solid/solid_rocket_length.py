@@ -14,8 +14,14 @@ class SolidRocketLength(SolidRocketLengthBase):
             # Docking mechanism: use implementation if referenced in .whatsopt_dock.yml file
             self._impl.compute(inputs, outputs)
         else:
-                    
-            outputs['L_SRM'] = 1.0   
+            Lcase = inputs['Lcase']
+            Lconv = inputs['Lconv']
+            Ldiv = inputs['Ldiv']
+
+            L_SRM = Lcase + Ldiv + Lconv 
+
+            outputs['L_SRM'] = L_SRM
+        return outputs           
 
 # Reminder: inputs of compute()
 #   
@@ -31,7 +37,4 @@ class SolidRocketLength(SolidRocketLengthBase):
 #			
 #    def compute_partials(self, inputs, partials):
 #        """ Jacobian for SolidRocketLength """
-#   
-#       	partials['L_SRM', 'Lcase'] = np.zeros((1, 1))
-#       	partials['L_SRM', 'Lconv'] = np.zeros((1, 1))
-#       	partials['L_SRM', 'Ldiv'] = np.zeros((1, 1))        
+#           

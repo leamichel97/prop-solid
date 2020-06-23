@@ -14,8 +14,17 @@ class PropellantsMass(PropellantsMassBase):
             # Docking mechanism: use implementation if referenced in .whatsopt_dock.yml file
             self._impl.compute(inputs, outputs)
         else:
-                    
-            outputs['Mp'] = np.ones((1,))   
+            prop_m = inputs['prop_m']
+            SF = inputs['SF']
+            tb = inputs['tb']
+        
+            Mp = (prop_m * tb) * (1 + SF)
+  
+            outputs['Mp'] = Mp
+        return outputs
+
+             
+             
 
 # Reminder: inputs of compute()
 #   

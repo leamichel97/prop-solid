@@ -14,8 +14,18 @@ class Migniter(MigniterBase):
             # Docking mechanism: use implementation if referenced in .whatsopt_dock.yml file
             self._impl.compute(inputs, outputs)
         else:
-                    
-            outputs['Migniter'] = 1.0   
+            Ds = inputs['Ds']
+            Lcase = inputs['Lcase']
+            Mp = inputs['Mp']
+            rho_p = inputs['rho_p']
+
+            Vcavity = Lcase * np.pi * ((0.99*Ds)/2)**2 - (Mp/rho_p)
+
+            Migniter = 20.62 * Vcavity
+        
+            outputs['Migniter'] = Migniter
+        return outputs
+   
 
 # Reminder: inputs of compute()
 #   

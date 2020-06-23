@@ -14,8 +14,20 @@ class PropMassFlowRate(PropMassFlowRateBase):
             # Docking mechanism: use implementation if referenced in .whatsopt_dock.yml file
             self._impl.compute(inputs, outputs)
         else:
-                    
-            outputs['prop_m'] = np.ones((1,))   
+            At = inputs['At']
+            gamma_maj = inputs['gamma_maj']
+            Pc = inputs['Pc']
+            R = inputs['R']
+            Tc = inputs['Tc']
+            Ra = 8314
+            M = 29
+            R = Ra/M
+
+            prop_m=(Pc*At*gamma_maj)/(np.sqrt(R*Tc))
+            
+            outputs['prop_m'] = prop_m
+        return outputs 
+    
 
 # Reminder: inputs of compute()
 #   

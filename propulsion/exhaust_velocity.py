@@ -14,8 +14,13 @@ class ExhaustVelocity(ExhaustVelocityBase):
             # Docking mechanism: use implementation if referenced in .whatsopt_dock.yml file
             self._impl.compute(inputs, outputs)
         else:
-                    
-            outputs['Ve'] = np.ones((1,))   
+            C_F = inputs['C_F']
+            Cstar = inputs['Cstar']
+
+            Ve = Cstar * C_F
+
+            outputs['Ve'] = Ve  
+        return outputs  
 
 # Reminder: inputs of compute()
 #   

@@ -14,8 +14,19 @@ class CharacteristicVelocity(CharacteristicVelocityBase):
             # Docking mechanism: use implementation if referenced in .whatsopt_dock.yml file
             self._impl.compute(inputs, outputs)
         else:
+            gamma_maj = inputs['gamma_maj']
+            R = inputs['R']
+            Tc = inputs['Tc']
+            Ra = 8314
+            M = 29
+            R = Ra/M
+
+            Cstar = (1/gamma_maj)*np.sqrt(R*Tc)
+
+            outputs['Cstar'] = Cstar
+        return outputs 
                     
-            outputs['Cstar'] = np.ones((1,))   
+              
 
 # Reminder: inputs of compute()
 #   
