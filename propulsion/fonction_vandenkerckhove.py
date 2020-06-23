@@ -14,14 +14,8 @@ class FonctionVandenkerckhove(FonctionVandenkerckhoveBase):
             # Docking mechanism: use implementation if referenced in .whatsopt_dock.yml file
             self._impl.compute(inputs, outputs)
         else:
-            gamma = inputs['gamma']
-        
-            gamma_maj = np.sqrt(gamma)*((2/(gamma+1))**((gamma+1)/(2*(gamma-1))))
-        
-            outputs['gamma_maj'] = gamma_maj
-        return outputs
                     
-          
+            outputs['gamma_maj'] = np.ones((1,))   
 
 # Reminder: inputs of compute()
 #   

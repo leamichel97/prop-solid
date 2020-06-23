@@ -25,7 +25,7 @@ def initialize(mda):
     mda['M_CaseBody'] = 1.0
     mda['M_CaseFrust'] = 1.0
     mda['M_CaseTop'] = 1.0
-    mda['M_InertStage'] = 1.0
+    # mda['M_InertStage'] = 1.0
     mda['M_InsulationBody'] = 1.0
     mda['M_InsulationTop'] = 1.0
     mda['M_PL'] = np.ones((1,))

@@ -14,14 +14,8 @@ class LengthConvergentSection(LengthConvergentSectionBase):
             # Docking mechanism: use implementation if referenced in .whatsopt_dock.yml file
             self._impl.compute(inputs, outputs)
         else:
-            beta = inputs['beta']
-            Ds = inputs['Ds']
-            Dt = inputs['Dt']
-
-            Lconv = (Ds - Dt) / (2 * np.sin(beta))
-
-            outputs['Lconv'] = Lconv
-        return outputs   
+                    
+            outputs['Lconv'] = np.ones((1,))   
 
 # Reminder: inputs of compute()
 #   

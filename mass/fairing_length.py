@@ -14,14 +14,8 @@ class FairingLength(FairingLengthBase):
             # Docking mechanism: use implementation if referenced in .whatsopt_dock.yml file
             self._impl.compute(inputs, outputs)
         else:
-            Ds = inputs['Ds']
-
-            Lfairing = 1.1035 * (Ds **1.6385) + 2.3707
-
-            outputs['Lfairing'] = Lfairing
-        
-        return outputs
-                      
+                    
+            outputs['Lfairing'] = np.ones((1,))   
 
 # Reminder: inputs of compute()
 #   

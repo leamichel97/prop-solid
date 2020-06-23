@@ -14,13 +14,8 @@ class InterstageLength(InterstageLengthBase):
             # Docking mechanism: use implementation if referenced in .whatsopt_dock.yml file
             self._impl.compute(inputs, outputs)
         else:
-            Lconv = inputs['Lconv']
-            Ldiv = inputs['Ldiv']
-
-            Linterstage = Lconv + Ldiv + 0.1
-            
-            outputs['Linterstage'] = Linterstage
-        return outputs 
+                    
+            outputs['Linterstage'] = np.ones((1,))   
 
 # Reminder: inputs of compute()
 #   

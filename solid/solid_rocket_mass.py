@@ -14,15 +14,8 @@ class SolidRocketMass(SolidRocketMassBase):
             # Docking mechanism: use implementation if referenced in .whatsopt_dock.yml file
             self._impl.compute(inputs, outputs)
         else:
-            Mp = inputs['Mp']
-            Mcase = inputs['Mcase']
-            Migniter = inputs['Migniter']
-            Mnozzle = inputs['Mnozzle']
-
-            M_SRM = Mp + Mnozzle + Mcase + Migniter
-
-            outputs['M_SRM'] = M_SRM
-        return outputs       
+                    
+            outputs['M_SRM'] = 1.0   
 
 # Reminder: inputs of compute()
 #   
@@ -39,4 +32,8 @@ class SolidRocketMass(SolidRocketMassBase):
 #			
 #    def compute_partials(self, inputs, partials):
 #        """ Jacobian for SolidRocketMass """
-#           
+#   
+#       	partials['M_SRM', 'Mcase'] = np.zeros((1, 1))
+#       	partials['M_SRM', 'Migniter'] = np.zeros((1, 1))
+#       	partials['M_SRM', 'Mnozzle'] = np.zeros((1, 1))
+#       	partials['M_SRM', 'Mp'] = np.zeros((1, 1))        

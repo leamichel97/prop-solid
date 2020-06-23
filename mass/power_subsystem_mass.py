@@ -14,13 +14,8 @@ class PowerSubsystemMass(PowerSubsystemMassBase):
             # Docking mechanism: use implementation if referenced in .whatsopt_dock.yml file
             self._impl.compute(inputs, outputs)
         else:
-            Mavionics = inputs['Mavionics']
-
-            M_EPS = 0.3321* Mavionics 
-
-            outputs['M_EPS'] = M_EPS
-        return outputs
-     
+                    
+            outputs['M_EPS'] = np.ones((1,))   
 
 # Reminder: inputs of compute()
 #   

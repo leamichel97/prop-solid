@@ -14,14 +14,8 @@ class AvionicsMass(AvionicsMassBase):
             # Docking mechanism: use implementation if referenced in .whatsopt_dock.yml file
             self._impl.compute(inputs, outputs)
         else:
-            Ds = inputs['Ds']
-            Lvehicle = inputs['Lvehicle']
-
-            Mavionics = 0.25 * (246.76+ 1.3183 * Ds * Lvehicle)
-
-            outputs['Mavionics'] = Mavionics
-
-        return outputs  
+                    
+            outputs['Mavionics'] = np.ones((1,))   
 
 # Reminder: inputs of compute()
 #   

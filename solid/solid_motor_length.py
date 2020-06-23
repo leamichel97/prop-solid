@@ -14,15 +14,8 @@ class SolidMotorLength(SolidMotorLengthBase):
             # Docking mechanism: use implementation if referenced in .whatsopt_dock.yml file
             self._impl.compute(inputs, outputs)
         else:
-            Ds = inputs['Ds']
-            FF = inputs['FF']
-            Mp = inputs['Mp']
-            rho_p = inputs['rho_p']
-
-            Lcase = Mp / (rho_p * np.pi * (((0.99* Ds) / 2 )**2) * FF)
-
-            outputs['Lcase'] = Lcase
-        return outputs
+                    
+            outputs['Lcase'] = np.ones((1,))   
 
 # Reminder: inputs of compute()
 #   

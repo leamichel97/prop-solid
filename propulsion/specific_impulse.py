@@ -14,14 +14,8 @@ class SpecificImpulse(SpecificImpulseBase):
             # Docking mechanism: use implementation if referenced in .whatsopt_dock.yml file
             self._impl.compute(inputs, outputs)
         else:
-            g0 = inputs['g0']
-            Ve = inputs['Ve']
-
-            Isp = Ve / g0
-
-            outputs['Isp'] = Isp  
-        return outputs
-  
+                    
+            outputs['Isp'] = np.ones((1,))   
 
 # Reminder: inputs of compute()
 #   

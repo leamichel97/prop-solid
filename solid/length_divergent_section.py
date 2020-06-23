@@ -14,16 +14,8 @@ class LengthDivergentSection(LengthDivergentSectionBase):
             # Docking mechanism: use implementation if referenced in .whatsopt_dock.yml file
             self._impl.compute(inputs, outputs)
         else:
-            De = inputs['De']
-            Dt = inputs['Dt']
-            Ru = inputs['Ru']
-            theta_n = inputs['theta_n']
-
-            Ldiv = Ru * np.sin(theta_n) + ((De - Dt - 2 * (Ru - Ru * np.cos(theta_n))) / (2 * np.tan(theta_n)))
-        
-            outputs['Ldiv'] = Ldiv
-        return outputs 
-                      
+                    
+            outputs['Ldiv'] = np.ones((1,))   
 
 # Reminder: inputs of compute()
 #   
