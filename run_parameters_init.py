@@ -7,19 +7,19 @@ from numpy import nan
 
 def initialize(mda):
 
-    mda['Ae'] = np.ones((1,))
-    mda['beta'] = np.ones((1,))
-    mda['De'] = np.ones((1,))
+    mda['Ae'] = 1.5926
+    mda['beta'] = 60
+    mda['De'] = 1.424
     mda['Dnozzle'] = 1.0
-    mda['Ds'] = np.ones((1,))
-    mda['Dt'] = np.ones((1,))
-    mda['FF'] = 1.0
-    mda['f_safety'] = 1.0
-    mda['g0'] = np.ones((1,))
-    mda['gamma'] = np.ones((1,))
-    mda['k_sm'] = np.ones((1,))
+    mda['Ds'] = 1.27
+    mda['Dt'] = 1
+    mda['FF'] = 0.95
+    mda['f_safety'] = 1.5
+    mda['g0'] = 9.80665
+    mda['gamma'] = 1
+    mda['k_sm'] = 1
     mda['Lfrust'] = 1.0
-    mda['Lvehicle'] = np.ones((1,))
+    mda['Lvehicle'] = 1
     mda['Mcarter'] = 1.0
     mda['Minsulation'] = 1.0
     mda['M_CaseBody'] = 1.0
@@ -27,23 +27,23 @@ def initialize(mda):
     mda['M_CaseTop'] = 1.0
     mda['M_InsulationBody'] = 1.0
     mda['M_InsulationTop'] = 1.0
-    mda['M_PL'] = np.ones((1,))
-    mda['Pa'] = np.ones((1,))
-    mda['Pc'] = np.ones((1,))
-    mda['Pe'] = np.ones((1,))
-    mda['R'] = np.ones((1,))
-    mda['rho'] = 1.0
-    mda['rho_in'] = 1.0
-    mda['rho_p'] = 1.0
-    mda['Ru'] = np.ones((1,))
-    mda['SF'] = np.ones((1,))
-    mda['sigma'] = 1.0
-    mda['Sint'] = np.ones((1,))
+    mda['M_PL'] = 140
+    mda['Pa'] = 26442
+    mda['Pc'] = 5610000
+    mda['Pe'] = 18327
+    mda['R'] = 286.689655
+    mda['rho'] = 1.6
+    mda['rho_in'] = 850
+    mda['rho_p'] = 1.85
+    mda['Ru'] = 1
+    mda['SF'] = 0.03
+    mda['sigma'] = 800000000
+    mda['Sint'] = 1
     mda['t'] = 1.0
-    mda['tb'] = np.ones((1,))
-    mda['Tc'] = np.ones((1,))
-    mda['theta_n'] = np.ones((1,))
-    mda['zeta'] = np.ones((1,))
+    mda['tb'] = 75.3
+    mda['Tc'] = 3440
+    mda['theta_n'] = 15
+    mda['zeta'] = 0.93630 
 
 
 
