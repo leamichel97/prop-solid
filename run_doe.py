@@ -42,6 +42,7 @@ else:
     pb.model.nonlinear_solver.options['err_on_maxiter'] = True
 
 
+pb.model.add_design_var('Mnozzle', lower=-sys.float_info.max, upper=sys.float_info.max)
 pb.model.add_design_var('M_CaseFrust', lower=-sys.float_info.max, upper=sys.float_info.max)
 
 

@@ -22,6 +22,7 @@ def initialize(mda):
     mda['Lvehicle'] = 1
     mda['Mcarter'] = 1.0
     mda['Minsulation'] = 1.0
+    mda['Mnozzle'] = 1.0
     mda['M_CaseBody'] = 1.0
     mda['M_CaseFrust'] = 1.0
     mda['M_CaseTop'] = 1.0
@@ -44,6 +45,7 @@ def initialize(mda):
     mda['Tc'] = 3440
     mda['theta_n'] = 15
     mda['zeta'] = 0.93630 
+
 
 
 

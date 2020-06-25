@@ -89,6 +89,7 @@ class LanceurPropSolideWithoutTrajectoryVersion2Base(Group):
         indeps.add_output('Lvehicle', np.ones((1,)))
         indeps.add_output('Mcarter', 1.0)
         indeps.add_output('Minsulation', 1.0)
+        indeps.add_output('Mnozzle', 1.0)
         indeps.add_output('M_CaseBody', 1.0)
         indeps.add_output('M_CaseFrust', 1.0)
         indeps.add_output('M_CaseTop', 1.0)
@@ -112,7 +113,7 @@ class LanceurPropSolideWithoutTrajectoryVersion2Base(Group):
         indeps.add_output('theta_n', np.ones((1,)))
         indeps.add_output('zeta', np.ones((1,)))
         self.add_subsystem('Propulsion', self.create_propulsion(), promotes=['Ae', 'F_T', 'g0', 'gamma', 'Isp', 'Pa', 'Pc', 'Pe', 'prop_m', 'R', 'Tc', 'zeta'])
-        self.add_subsystem('Solid', self.create_solid(), promotes=['beta', 'De', 'Dnozzle', 'Ds', 'Dt', 'FF', 'f_safety', 'Lconv', 'Ldiv', 'Lfrust', 'L_SRM', 'Mcarter', 'Minsulation', 'M_CaseBody', 'M_CaseFrust', 'M_CaseTop', 'M_InsulationBody', 'M_InsulationTop', 'M_SRM', 'Pc', 'prop_m', 'rho', 'rho_in', 'rho_p', 'Ru', 'SF', 'sigma', 't', 'tb', 'theta_n'])
+        self.add_subsystem('Solid', self.create_solid(), promotes=['beta', 'De', 'Dnozzle', 'Ds', 'Dt', 'FF', 'f_safety', 'Lconv', 'Ldiv', 'Lfrust', 'L_SRM', 'Mcarter', 'Minsulation', 'Mnozzle', 'M_CaseBody', 'M_CaseFrust', 'M_CaseTop', 'M_InsulationBody', 'M_InsulationTop', 'M_SRM', 'Pc', 'prop_m', 'rho', 'rho_in', 'rho_p', 'Ru', 'SF', 'sigma', 't', 'tb', 'theta_n'])
         self.add_subsystem('Mass', self.create_mass(), promotes=['Ds', 'k_sm', 'Lconv', 'Ldiv', 'Lfairing', 'Linterstage', 'Lvehicle', 'Mavionics', 'Mfairing', 'Minterstage', 'Mpad', 'M_EPS', 'M_PL', 'M_PLA', 'Sint'])
 
     def create_propulsion(self):
