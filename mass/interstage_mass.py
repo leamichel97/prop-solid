@@ -14,8 +14,14 @@ class InterstageMass(InterstageMassBase):
             # Docking mechanism: use implementation if referenced in .whatsopt_dock.yml file
             self._impl.compute(inputs, outputs)
         else:
-                    
-            outputs['Minterstage'] = np.ones((1,))   
+            Ds = inputs['Ds']
+            k_sm = inputs['k_sm']
+            Sint = inputs['Sint']
+
+            Minterstage = k_sm * 7.7165 * Sint * (3.3208 * Ds)**0.4856
+
+            outputs['Minterstage'] = Minterstage
+        return outputs  
 
 # Reminder: inputs of compute()
 #   

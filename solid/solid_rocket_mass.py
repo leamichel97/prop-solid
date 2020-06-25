@@ -14,8 +14,15 @@ class SolidRocketMass(SolidRocketMassBase):
             # Docking mechanism: use implementation if referenced in .whatsopt_dock.yml file
             self._impl.compute(inputs, outputs)
         else:
-                    
-            outputs['M_SRM'] = 1.0   
+            Mp = inputs['Mp']
+            Mcase = inputs['Mcase']
+            Migniter = inputs['Migniter']
+            Mnozzle = inputs['Mnozzle']
+
+            M_SRM = Mp + Mnozzle + Mcase + Migniter
+
+            outputs['M_SRM'] = M_SRM
+        return outputs    
 
 # Reminder: inputs of compute()
 #   

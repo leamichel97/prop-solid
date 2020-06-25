@@ -14,8 +14,17 @@ class ThrustForce(ThrustForceBase):
             # Docking mechanism: use implementation if referenced in .whatsopt_dock.yml file
             self._impl.compute(inputs, outputs)
         else:
-                    
-            outputs['F_T'] = np.ones((1,))   
+            Ae = inputs['Ae']
+            Pa = inputs['Pa']
+            Pe = inputs['Pe']
+            prop_m = inputs['prop_m']
+            Ve = inputs['Ve']
+            zeta = inputs['zeta']
+
+            F_T = zeta * ((prop_m * Ve) + (Ae * (Pe - Pa)))
+
+            outputs['F_T'] = F_T
+        return outputs   
 
 # Reminder: inputs of compute()
 #   

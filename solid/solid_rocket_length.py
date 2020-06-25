@@ -14,8 +14,14 @@ class SolidRocketLength(SolidRocketLengthBase):
             # Docking mechanism: use implementation if referenced in .whatsopt_dock.yml file
             self._impl.compute(inputs, outputs)
         else:
-                    
-            outputs['L_SRM'] = 1.0   
+            Lcase = inputs['Lcase']
+            Lconv = inputs['Lconv']
+            Ldiv = inputs['Ldiv']
+
+            L_SRM = Lcase + Ldiv + Lconv 
+
+            outputs['L_SRM'] = L_SRM
+        return outputs      
 
 # Reminder: inputs of compute()
 #   

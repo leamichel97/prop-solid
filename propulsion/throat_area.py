@@ -14,9 +14,13 @@ class ThroatArea(ThroatAreaBase):
             # Docking mechanism: use implementation if referenced in .whatsopt_dock.yml file
             self._impl.compute(inputs, outputs)
         else:
-                    
-            outputs['At'] = np.ones((1,))   
-
+            Ae = inputs['Ae']
+            epsilon = inputs['epsilon']
+            
+            At = Ae/epsilon
+        
+            outputs['At'] = At
+        return outputs  
 # Reminder: inputs of compute()
 #   
 #       inputs['Ae'] -> shape: (1,), type: Float    

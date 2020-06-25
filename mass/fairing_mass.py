@@ -14,8 +14,14 @@ class FairingMass(FairingMassBase):
             # Docking mechanism: use implementation if referenced in .whatsopt_dock.yml file
             self._impl.compute(inputs, outputs)
         else:
-                    
-            outputs['Mfairing'] = np.ones((1,))   
+            Ds = inputs['Ds']
+            Lfairing = inputs['Lfairing']
+
+            Mfairing = 49.3218 * ((Lfairing * Ds)**0.9054)
+
+            outputs['Mfairing'] = Mfairing
+            
+        return outputs   
 
 # Reminder: inputs of compute()
 #   

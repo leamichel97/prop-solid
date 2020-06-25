@@ -14,8 +14,12 @@ class PadInterfaceMass(PadInterfaceMassBase):
             # Docking mechanism: use implementation if referenced in .whatsopt_dock.yml file
             self._impl.compute(inputs, outputs)
         else:
-                    
-            outputs['Mpad'] = np.ones((1,))   
+            Ds = inputs['Ds']
+            
+            Mpad = 25.736 * np.pi * (Ds**2)/4 * (3.2808 * Ds)**0.5498
+
+            outputs['Mpad'] = Mpad
+        return outputs  
 
 # Reminder: inputs of compute()
 #   
