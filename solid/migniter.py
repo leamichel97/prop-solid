@@ -21,7 +21,7 @@ class Migniter(MigniterBase):
 
             Vcavity = Lcase * np.pi * ((0.99*Ds)/2)**2 - (Mp/rho_p)
 
-            Migniter = 20.62 * Vcavity
+            Migniter = (20.62 * Vcavity) ** 0.7368
         
             outputs['Migniter'] = Migniter
         return outputs
