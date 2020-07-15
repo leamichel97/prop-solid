@@ -39,7 +39,7 @@ class Mcase(McaseBase):
 
             M_InsulationBody = rho_in * np.pi * Lcase * (((0.99 * Ds) / 2)**2 - (((0.99 * Ds)/2)**2 - (((0.99 * Ds)/2) - 0.003)**2))
 
-            Mcarter = M_CaseBody + M_CaseTop + M_CaseFrust
+            Mcarter = M_CaseBody + M_CaseTop
 
             Minsulation = M_InsulationBody + M_InsulationTop
             
