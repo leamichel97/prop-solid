@@ -20,7 +20,6 @@ class SolidMotorLength(SolidMotorLengthBase):
             rho_p = inputs['rho_p']
 
             Lcase = Mp / (rho_p * np.pi * (((0.99* Ds) / 2 )**2) * FF)
-
             outputs['Lcase'] = Lcase
         return outputs  
 

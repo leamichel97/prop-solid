@@ -19,7 +19,7 @@ class LengthDivergentSection(LengthDivergentSectionBase):
             Ru = inputs['Ru']
             theta_n = inputs['theta_n']
 
-            Ldiv = Ru * np.sin(theta_n) + ((De - Dt - 2 * (Ru - Ru * np.cos(theta_n))) / (2 * np.tan(theta_n)))
+            Ldiv = Ru * np.sin(theta_n*np.pi/180) + ((De - Dt - 2 * (Ru - Ru * np.cos(theta_n*np.pi/180))) / (2 * np.tan(theta_n*np.pi/180)))
         
             outputs['Ldiv'] = Ldiv
         return outputs 

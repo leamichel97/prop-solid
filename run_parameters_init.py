@@ -30,9 +30,9 @@ def initialize(mda):
     mda['Pc'] = 5610000
     mda['Pe'] = 18327
     mda['R'] = 286.689655
-    mda['rho'] = 1.6
+    mda['rho'] = 1600
     mda['rho_in'] = 850
-    mda['rho_p'] = 1.85
+    mda['rho_p'] = 1850
     mda['Ru'] = 0.1
     mda['SF'] = 0.03
     mda['sigma'] = 800000000

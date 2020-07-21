@@ -18,7 +18,7 @@ class LengthConvergentSection(LengthConvergentSectionBase):
             Ds = inputs['Ds']
             Dt = inputs['Dt']
 
-            Lconv = (Ds - Dt) / (2 * np.sin(beta))
+            Lconv = (Ds - Dt) / (2 * np.sin(beta*np.pi/180))
 
             outputs['Lconv'] = Lconv
         return outputs 
