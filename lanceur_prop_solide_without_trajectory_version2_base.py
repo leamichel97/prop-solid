@@ -43,6 +43,7 @@ from mass.pad_interface_mass import PadInterfaceMass
 from mass.avionics_mass import AvionicsMass
 from mass.power_subsystem_mass import PowerSubsystemMass
 from mass.payload_adapter_mass import PayloadAdapterMass
+from mass.total_mass import TotalMass
 
 
 class LanceurPropSolideWithoutTrajectoryVersion2Base(Group):
@@ -77,8 +78,11 @@ class LanceurPropSolideWithoutTrajectoryVersion2Base(Group):
         indeps.add_output('k_sm', np.ones((1,)))
         indeps.add_output('Lvehicle', np.ones((1,)))
         indeps.add_output('Mcarter', 1.0)
+        indeps.add_output('Mcase', 1.0)
+        indeps.add_output('Migniter', 1.0)
         indeps.add_output('Minsulation', 1.0)
         indeps.add_output('Mnozzle', 1.0)
+        indeps.add_output('Mp', 1.0)
         indeps.add_output('M_CaseBody', 1.0)
         indeps.add_output('M_CaseTop', 1.0)
         indeps.add_output('M_InsulationBody', 1.0)
@@ -101,8 +105,8 @@ class LanceurPropSolideWithoutTrajectoryVersion2Base(Group):
         indeps.add_output('theta_n', np.ones((1,)))
         indeps.add_output('zeta', np.ones((1,)))
         self.add_subsystem('Propulsion', self.create_propulsion(), promotes=['Ae', 'F_T', 'g0', 'gamma', 'Isp', 'Pa', 'Pc', 'Pe', 'prop_m', 'R', 'Tc', 'zeta'])
-        self.add_subsystem('Solid', self.create_solid(), promotes=['beta', 'De', 'Ds', 'Dt', 'FF', 'f_safety', 'Lconv', 'Ldiv', 'L_SRM', 'Mcarter', 'Minsulation', 'Mnozzle', 'M_CaseBody', 'M_CaseTop', 'M_InsulationBody', 'M_InsulationTop', 'M_SRM', 'Pc', 'prop_m', 'rho', 'rho_in', 'rho_p', 'Ru', 'SF', 'sigma', 't', 'tb', 'theta_n'])
-        self.add_subsystem('Mass', self.create_mass(), promotes=['Ds', 'k_sm', 'Lconv', 'Ldiv', 'Lfairing', 'Linterstage', 'Lvehicle', 'L_SRM', 'Mavionics', 'Mfairing', 'Minterstage', 'Mpad', 'M_EPS', 'M_PL', 'M_PLA', 'Sint'])
+        self.add_subsystem('Solid', self.create_solid(), promotes=['beta', 'De', 'Ds', 'Dt', 'FF', 'f_safety', 'Lconv', 'Ldiv', 'L_SRM', 'Mcarter', 'Mcase', 'Migniter', 'Minsulation', 'Mnozzle', 'Mp', 'M_CaseBody', 'M_CaseTop', 'M_InsulationBody', 'M_InsulationTop', 'M_SRM', 'Pc', 'prop_m', 'rho', 'rho_in', 'rho_p', 'Ru', 'SF', 'sigma', 't', 'tb', 'theta_n'])
+        self.add_subsystem('Mass', self.create_mass(), promotes=['Ds', 'k_sm', 'Lconv', 'Ldiv', 'Lfairing', 'Linterstage', 'Lvehicle', 'L_SRM', 'Mavionics', 'Mcase', 'Mf', 'Mfairing', 'Mi', 'Migniter', 'Minterstage', 'Mp', 'Mpad', 'M_EPS', 'M_PL', 'M_PLA', 'M_SRM', 'Sint'])
 
     def create_propulsion(self):
     	return Propulsion()
@@ -195,3 +199,6 @@ class LanceurPropSolideWithoutTrajectoryVersion2FactoryBase(object):
     @staticmethod
     def create_mass_payload_adapter_mass():
     	return PayloadAdapterMass()
+    @staticmethod
+    def create_mass_total_mass():
+    	return TotalMass()

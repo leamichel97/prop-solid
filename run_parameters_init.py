@@ -19,8 +19,11 @@ def initialize(mda):
     mda['k_sm'] = 1
     mda['Lvehicle'] = 1.0   
     mda['Mcarter'] = 1.0
+    mda['Mcase'] = 1.0
+    mda['Migniter'] = 1.0
     mda['Minsulation'] = 1.0
     mda['Mnozzle'] = 13
+    mda['Mp'] = 1.0
     mda['M_CaseBody'] = 1.0
     mda['M_CaseTop'] = 1.0
     mda['M_InsulationBody'] = 1.0

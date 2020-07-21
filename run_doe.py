@@ -37,7 +37,10 @@ pb.driver.add_recorder(recorder)
 pb.model.nonlinear_solver.options['err_on_non_converge'] = True
 
 
+pb.model.add_design_var('Mcase', lower=-sys.float_info.max, upper=sys.float_info.max)
+pb.model.add_design_var('Migniter', lower=-sys.float_info.max, upper=sys.float_info.max)
 pb.model.add_design_var('Mnozzle', lower=-sys.float_info.max, upper=sys.float_info.max)
+pb.model.add_design_var('Mp', lower=-sys.float_info.max, upper=sys.float_info.max)
 
 
 pb.model.add_objective('F_T')
@@ -47,12 +50,13 @@ pb.model.add_objective('Ldiv')
 pb.model.add_objective('Lfairing')
 pb.model.add_objective('Linterstage')
 pb.model.add_objective('Mavionics')
+pb.model.add_objective('Mf')
 pb.model.add_objective('Mfairing')
+pb.model.add_objective('Mi')
 pb.model.add_objective('Minterstage')
 pb.model.add_objective('Mpad')
 pb.model.add_objective('M_EPS')
 pb.model.add_objective('M_PLA')
-pb.model.add_objective('M_SRM')
 pb.model.add_objective('prop_m')
 
 pb.setup()  

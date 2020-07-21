@@ -22,7 +22,7 @@ class SolidRocketMass(SolidRocketMassBase):
             M_SRM = Mp + Mnozzle + Mcase + Migniter
 
             outputs['M_SRM'] = M_SRM
-        return outputs 
+        return outputs   
 
 # Reminder: inputs of compute()
 #   

@@ -23,6 +23,8 @@ from mass.pad_interface_mass import PadInterfaceMass
 from mass.avionics_mass import AvionicsMass
 from mass.power_subsystem_mass import PowerSubsystemMass
 from mass.payload_adapter_mass import PayloadAdapterMass
+from mass.total_mass import TotalMass
+
 
 
 
@@ -60,6 +62,7 @@ class MassBase(Group):
         self.add_subsystem('AvionicsMass', self.create_avionics_mass(), promotes=['Ds', 'Lfairing', 'Linterstage', 'Lvehicle', 'L_SRM', 'Mavionics'])
         self.add_subsystem('PowerSubsystemMass', self.create_power_subsystem_mass(), promotes=['Mavionics', 'M_EPS'])
         self.add_subsystem('PayloadAdapterMass', self.create_payload_adapter_mass(), promotes=['M_PL', 'M_PLA'])
+        self.add_subsystem('TotalMass', self.create_total_mass(), promotes=['Mavionics', 'Mcase', 'Mf', 'Mfairing', 'Mi', 'Migniter', 'Minterstage', 'Mp', 'Mpad', 'M_EPS', 'M_PLA', 'M_SRM'])
 
     def create_interstage_length(self):
     	return InterstageLength()
@@ -77,6 +80,8 @@ class MassBase(Group):
     	return PowerSubsystemMass()
     def create_payload_adapter_mass(self):
     	return PayloadAdapterMass()
+    def create_total_mass(self):
+    	return TotalMass()
 
 
 # Used by Thrift server to serve disciplines
@@ -105,3 +110,6 @@ class MassFactoryBase(object):
     @staticmethod
     def create_mass_payload_adapter_mass():
     	return PayloadAdapterMass()
+    @staticmethod
+    def create_mass_total_mass():
+    	return TotalMass()
