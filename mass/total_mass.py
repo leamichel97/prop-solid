@@ -14,9 +14,25 @@ class TotalMass(TotalMassBase):
             # Docking mechanism: use implementation if referenced in .whatsopt_dock.yml file
             self._impl.compute(inputs, outputs)
         else:
+            Mavionics = inputs['Mavionics']
+            Mcase = inputs['Mcase']
+            Mfairing = inputs['Mfairing']
+            Migniter = inputs['Migniter']
+            Minterstage = inputs['Minterstage']
+            Mp = inputs['Mp']
+            Mpad = inputs['Mpad']
+            M_EPS = inputs['M_EPS']
+            M_PLA = inputs['M_PLA']
+            M_SRM = inputs['M_SRM']
+            
+
+            Mi = Mavionics + Mcase + Mfairing + Migniter + Minterstage + Mpad + M_EPS + M_PLA + M_SRM
+            Mf = Mi + Mp
+
                     
-            outputs['Mf'] = 1.0 
-            outputs['Mi'] = 1.0   
+            outputs['Mf'] = Mf 
+            outputs['Mi'] = Mi  
+        return outputs
 
 # Reminder: inputs of compute()
 #   
