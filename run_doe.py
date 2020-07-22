@@ -37,10 +37,7 @@ pb.driver.add_recorder(recorder)
 pb.model.nonlinear_solver.options['err_on_non_converge'] = True
 
 
-pb.model.add_design_var('Mcase', lower=-sys.float_info.max, upper=sys.float_info.max)
-pb.model.add_design_var('Migniter', lower=-sys.float_info.max, upper=sys.float_info.max)
 pb.model.add_design_var('Mnozzle', lower=-sys.float_info.max, upper=sys.float_info.max)
-pb.model.add_design_var('Mp', lower=-sys.float_info.max, upper=sys.float_info.max)
 
 
 pb.model.add_objective('F_T')
