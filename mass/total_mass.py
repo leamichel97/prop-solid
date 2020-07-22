@@ -26,8 +26,8 @@ class TotalMass(TotalMassBase):
             M_SRM = inputs['M_SRM']
             
 
-            Mi = Mavionics + Mcase + Mfairing + Migniter + Minterstage + Mpad + M_EPS + M_PLA + M_SRM
-            Mf = Mi + Mp
+            Mf = Mavionics + Mcase + Mfairing + Migniter + Minterstage + Mpad + M_EPS + M_PLA + M_SRM
+            Mi = Mf + Mp
 
                     
             outputs['Mf'] = Mf 
