@@ -19,11 +19,8 @@ def initialize(mda):
     mda['k_sm'] = 1 # Interstage material correction factor - Without Unit
     mda['Lvehicle'] = 1.0 # Vehicle Length - m
     mda['Mcarter'] = 1.0 # Mass of the motor case itself - kg
-    #mda['Mcase'] = 1.0 # Mass of the motor case - kg
-    #mda['Migniter'] = 1.0 # Igniter mass - kg
     mda['Minsulation'] = 1.0 # Mass of the insulation layer - kg
     mda['Mnozzle'] = 13 # Nozzle Mass - kg
-    #mda['Mp'] = 1.0 # Propellant mass  - kg
     mda['M_CaseBody'] = 1.0 # Case body Mass - kg
     mda['M_CaseTop'] = 1.0 # Case Top Mass - kg
     mda['M_InsulationBody'] = 1.0 # Mass of the insulation body - kg
